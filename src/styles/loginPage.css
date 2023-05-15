@@ -1,7 +1,7 @@
 .login-container {
   width: 450px;
   height: 547px;
-  background: rgba(0, 0, 0, 0.85);
+  /* background: rgba(0, 0, 0, 0.85); */
   border-radius: 4px;
   margin: 0 auto;
   padding: 48px 68px;
@@ -12,9 +12,15 @@
   font-size: 32px;
   line-height: 38px;
   letter-spacing: 0.01em;
-  color: #ffffff;
 }
 
+.login-container h1.theme-dark {
+  color: white;
+}
+
+.login-container h1.theme-light {
+  color: rgb(6, 6, 6);
+}
 .login-container .login-inputs {
   margin-top: 30px;
   margin-bottom: 40px;

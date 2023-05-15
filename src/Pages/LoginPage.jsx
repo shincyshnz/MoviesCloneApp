@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../styles/loginPage.css";
+import { ThemeContext } from "../context/ThemeContext";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
+  const { theme, onChangeTheme } = useContext(ThemeContext);
   const { auth, login, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -83,12 +85,12 @@ export const LoginPage = () => {
 
   return (
     <form
-      className="login-container"
+      className={`login-container theme-${theme}`}
       onSubmit={handleSubmit}
       noValidate
       autoComplete="off"
     >
-      <h1>Sign In</h1>
+      <h1 className={`theme-${theme}`}>Sign In</h1>
       <div className="login-inputs">
         <input
           id="username"
@@ -118,7 +120,7 @@ export const LoginPage = () => {
       <div className="forgot-password">Forgot Password?</div>
       <div className="sign-up-link mt-32 text-center">
         New to MoviesClone?
-        <a className="text-white cursor-pointer"> Sign Up now </a>
+        <a className="cursor-pointer font-bold"> Sign Up now </a>
       </div>
     </form>
   );
