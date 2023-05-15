@@ -1,0 +1,33 @@
+.home-container {
+  padding: 52px 156px;
+  margin: 30px 64px;
+}
+
+.home-container .search-box {
+  width: 846px;
+  max-width: 100%;
+  height: 54px;
+  background: #ffffff;
+  border-radius: 20px;
+  margin: auto;
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 0 13px;
+}
+
+@media (max-width: 450px) {
+  .home-container {
+    margin: 0;
+  }
+}
+
+.home-container .movie-lists {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  padding: 52px 0px;
+}
