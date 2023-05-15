@@ -7,7 +7,7 @@ export const Footer = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <footer className="bg-transparent md:pt-2 md:px-0">
+    <footer className="bg-transparent">
       <div className={`footer-container theme-${theme}`}>
         <div className="footer-questions">Questions? Call 1-844-505-2993</div>
         <div className="footer-links flex">

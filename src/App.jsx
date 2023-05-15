@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import { HomePage } from "./Pages/HomePage";
 import { LoginPage } from "./Pages/LoginPage";
 import { AuthContext } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -15,11 +16,10 @@ function App() {
     <>
       <Header />
       <Routes>
-        {auth ? (
+        <Route path="/" element={<LoginPage />}></Route>
+        <Route element={<ProtectedRoute />}>
           <Route path="/home" element={<HomePage />}></Route>
-        ) : (
-          <Route path="/" element={<LoginPage />}></Route>
-        )}
+        </Route>
       </Routes>
       <Footer />
     </>

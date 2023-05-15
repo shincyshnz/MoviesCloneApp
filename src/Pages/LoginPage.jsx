@@ -2,12 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import "../styles/loginPage.css";
 import { ThemeContext } from "../context/ThemeContext";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const { theme, onChangeTheme } = useContext(ThemeContext);
   const { auth, login, logout } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const [formFields, setFormFields] = useState({
     username: "",
@@ -74,7 +72,6 @@ export const LoginPage = () => {
     ) {
       // setAuth Context
       login();
-      navigate("/home");
     } else {
       setErrorFields((prev) => ({
         ...prev,

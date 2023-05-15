@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidV4 } from "uuid";
 
 export const AuthContext = createContext();
 
@@ -9,7 +10,10 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
+    const authToken = uuidV4();
+
     const userData = {
+      id: authToken,
       username: "test",
       password: "test",
     };
@@ -19,6 +23,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = () => {
     setAuth(true);
+    navigate("/home");
   };
 
   const logout = () => {
