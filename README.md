@@ -16,6 +16,7 @@ This is a Simple Movie Search Application using TMDB Movie API. User is authenti
 - Context API
 - Local Storage
 - Custom Hooks(Debounce & Local Storage)
+- Protected Route
 - CSS
 - Axios
 - Vite
