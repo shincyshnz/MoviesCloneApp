@@ -4,7 +4,6 @@ import { MdDarkMode, MdSunny, MdOutlinePersonOutline } from "react-icons/md";
 import { ThemeContext } from "../../context/ThemeContext";
 import { AuthContext } from "../../context/AuthContext";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
 export const Header = () => {
   const { theme, onChangeTheme } = useContext(ThemeContext);
@@ -13,6 +12,8 @@ export const Header = () => {
   useEffect(() => {
     document.body.className = `theme-${theme}`;
   }, [theme]);
+
+  console.log(auth, "==auth");
 
   return (
     <header>

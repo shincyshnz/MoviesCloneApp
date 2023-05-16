@@ -1,35 +1,31 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidV4 } from "uuid";
+import { useLocalStorage } from "../CustomHooks/useLocalStorage";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const navigate = useNavigate();
+  const { handleSetLocalStorage, handleGetLocalStorage } = useLocalStorage();
 
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState("");
+  const authToken = uuidV4();
 
   useEffect(() => {
-    const authToken = uuidV4();
-
-    const userData = {
-      id: authToken,
-      username: "test",
-      password: "test",
-    };
-
-    localStorage.setItem("userData", JSON.stringify(userData));
+    const token = handleGetLocalStorage("Token");
+    token == "" && setAuth(false);
   }, []);
 
-  const login = () => {
-    setAuth(true);
-    navigate("/home");
+  const login = (username, password) => {
+    if (username === "test" && password == "test") {
+      handleSetLocalStorage("Token", authToken);
+      setAuth(true);
+    }
   };
 
   const logout = () => {
-    localStorage.removeItem("userData");
+    localStorage.removeItem("Token");
     setAuth(false);
-    navigate("/");
   };
 
   return (

@@ -4,21 +4,19 @@ import "./styles/globals.css";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
-import { HomePage } from "./Pages/HomePage";
-import { LoginPage } from "./Pages/LoginPage";
 import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Login } from "./Pages/Login/Login";
+import { Home } from "./Pages/Home/Home";
 
 function App() {
-  const { auth } = useContext(AuthContext);
-
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<LoginPage />}></Route>
+        <Route path="/" element={<Login />}></Route>
         <Route element={<ProtectedRoute />}>
-          <Route path="/home" element={<HomePage />}></Route>
+          <Route path="/home" element={<Home />}></Route>
         </Route>
       </Routes>
       <Footer />

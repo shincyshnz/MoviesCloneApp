@@ -1,9 +1,8 @@
 .login-container {
   width: 450px;
   height: 547px;
-  /* background: rgba(0, 0, 0, 0.85); */
   border-radius: 4px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 48px 68px;
 }
 
@@ -54,4 +53,21 @@
   line-height: 15px;
   padding-top: 14px;
   text-align: right;
+}
+@media (max-width: 450px) {
+  .login-container {
+    width: 350px;
+    height: 100%;
+    padding: 12px 20px;
+  }
+  .login-container input {
+    width: 100%;
+  }
+  .login-container button {
+    width: 100%;
+  }
+  .login-container .sign-up-link {
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
 }

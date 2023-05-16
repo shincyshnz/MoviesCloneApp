@@ -1,6 +1,6 @@
 .home-container {
-  padding: 52px 156px;
-  margin: 30px 64px;
+  padding: 52px 25px;
+  margin: 0;
 }
 
 .home-container .search-box {
@@ -17,17 +17,26 @@
   gap: 0 13px;
 }
 
-@media (max-width: 450px) {
-  .home-container {
-    margin: 0;
-  }
-}
-
 .home-container .movie-lists {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 60px;
+  gap: 30px;
   padding: 52px 0px;
+}
+
+.home-container .movie-box img {
+  width: 200px;
+  height: 240px;
+}
+@media (min-width: 1400px) {
+  .home-container {
+    padding: 52px 156px;
+    margin: 30px 64px;
+  }
+
+  .home-container .movie-lists {
+    gap: 60px;
+  }
 }

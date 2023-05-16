@@ -16,7 +16,7 @@ export const Footer = () => {
             <li>Help Center</li>
             <li>Terms of Use</li>
             <li>
-              <div className="flex gap-2">
+              <div className="social-icons">
                 <button>
                   <img src="facebook.svg" alt="facebook" />
                 </button>
@@ -41,7 +41,7 @@ export const Footer = () => {
           </ul>
         </div>
         <div className={`footer-language theme-${theme}`}>
-          <select className="language bg-transparent">
+          <select>
             <option value="english">English</option>
             <option value="arabic">Arabic</option>
           </select>

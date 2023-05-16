@@ -1,11 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import "../styles/loginPage.css";
-import { ThemeContext } from "../context/ThemeContext";
-import { AuthContext } from "../context/AuthContext";
+import "./login.css";
+import { ThemeContext } from "../../context/ThemeContext";
+import { AuthContext } from "../../context/AuthContext";
+import { useLocalStorage } from "../../CustomHooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
 
-export const LoginPage = () => {
-  const { theme, onChangeTheme } = useContext(ThemeContext);
-  const { auth, login, logout } = useContext(AuthContext);
+export const Login = () => {
+  const { theme } = useContext(ThemeContext);
+  const { login } = useContext(AuthContext);
+  const { handleGetLocalStorage } = useLocalStorage();
+
+  const navigate = useNavigate();
 
   const [formFields, setFormFields] = useState({
     username: "",
@@ -54,30 +59,23 @@ export const LoginPage = () => {
     event.preventDefault();
 
     if (!isValid()) {
-      console.log("error");
-      return;
+      setErrorFields((prev) => ({
+        ...prev,
+        loginError: "Username and Password invalid",
+      }));
     }
 
     // Compare data with local storage and redirect to HomePage
-    const user = JSON.parse(localStorage.getItem("userData"));
-    !user &&
+    const FormData = handleGetLocalStorage("Token");
+
+    !FormData &&
       setErrorFields((prev) => ({
         ...prev,
         loginError: "Username does not exist",
       }));
 
-    if (
-      user.username === formFields.username &&
-      user.password === formFields.password
-    ) {
-      // setAuth Context
-      login();
-    } else {
-      setErrorFields((prev) => ({
-        ...prev,
-        loginError: "Username and Password does not match",
-      }));
-    }
+    login(formFields.username, formFields.password);
+    navigate("/home");
   };
 
   return (

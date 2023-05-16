@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../styles/homePage.css";
+import "./home.css";
 import axios from "axios";
 
 const API_URL =
   "https://api.themoviedb.org/3/search/movie?api_key=d3449ff6ec0c027623bf6b6f5fff78b3&language=en-US&page=1&include_adult=false";
 
-export const HomePage = () => {
+export const Home = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchList, setSearchList] = useState([]);
 
@@ -69,8 +69,6 @@ export const HomePage = () => {
             <div className="movie-box" key={data.id}>
               <img
                 className="movie-image"
-                width="200px"
-                height="240px"
                 src={
                   data.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
