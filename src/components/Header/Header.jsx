@@ -13,8 +13,6 @@ export const Header = () => {
     document.body.className = `theme-${theme}`;
   }, [theme]);
 
-  console.log(auth, "==auth");
-
   return (
     <header>
       <div className="header-container flex justify-between">

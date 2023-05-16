@@ -8,13 +8,13 @@
 
 .theme-light::before,
 .theme-light {
-  background-color: rgba(255, 255, 255, 0.843);
+  background-color: var(--theme-light-bg);
   color: var(--theme-light-text-color);
 }
 
 .theme-dark::before,
 .theme-dark {
-  background-color: rgba(0, 0, 0, 0.843);
+  background-color: var(--theme-dark-bg);
   color: var(--theme-dark-text-color);
 }
 

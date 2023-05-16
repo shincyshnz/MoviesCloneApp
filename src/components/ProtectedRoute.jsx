@@ -8,7 +8,6 @@ const ProtectedRoute = () => {
   if (!auth) {
     return <Navigate to="/" />;
   }
-  console.log(auth);
   return <Outlet />;
 };
 

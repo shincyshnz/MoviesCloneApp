@@ -3,11 +3,11 @@
 
   --theme-light-header-footer: #fff;
   --theme-light-text-color: #000;
-  --theme-light-bg: rgba(255, 255, 255, 0.85);
+  --theme-light-bg: rgba(255, 255, 255, 0.843);
 
   --theme-dark-header-footer: #36394c;
   --theme-dark-text-color: #757575;
-  --theme-dark-bg: rgba(0, 0, 0, 0.954);
+  --theme-dark-bg: rgba(0, 0, 0, 0.843);
 
   --logo-text-color: #e50914;
   --header-size: 100px;

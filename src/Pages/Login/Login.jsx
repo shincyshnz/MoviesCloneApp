@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 export const Login = () => {
   const { theme } = useContext(ThemeContext);
   const { login } = useContext(AuthContext);
-  const { handleGetLocalStorage } = useLocalStorage();
 
   const navigate = useNavigate();
 
@@ -21,6 +20,13 @@ export const Login = () => {
     password: "",
     loginError: "",
   });
+
+  const errorSetting = (key, msg) => {
+    setErrorFields((prev) => ({
+      ...prev,
+      [key]: msg,
+    }));
+  };
 
   const isFormValid = (fieldName, fieldValue) => {
     const tempError = { username: "", password: "" };
@@ -59,23 +65,12 @@ export const Login = () => {
     event.preventDefault();
 
     if (!isValid()) {
-      setErrorFields((prev) => ({
-        ...prev,
-        loginError: "Username and Password invalid",
-      }));
+      errorSetting("loginError", "Username and Password cannot be empty");
     }
 
-    // Compare data with local storage and redirect to HomePage
-    const FormData = handleGetLocalStorage("Token");
-
-    !FormData &&
-      setErrorFields((prev) => ({
-        ...prev,
-        loginError: "Username does not exist",
-      }));
-
-    login(formFields.username, formFields.password);
-    navigate("/home");
+    login(formFields.username.trim(), formFields.password.trim())
+      ? navigate("/home")
+      : errorSetting("loginError", "Username and Password does not match");
   };
 
   return (
@@ -113,7 +108,7 @@ export const Login = () => {
         <p className="text-red-600 p-2">{errorFields.loginError}</p>
       )}
       <div className="forgot-password">Forgot Password?</div>
-      <div className="sign-up-link mt-32 text-center">
+      <div className="sign-up-link text-center">
         New to MoviesClone?
         <a className="cursor-pointer font-bold"> Sign Up now </a>
       </div>

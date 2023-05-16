@@ -19,6 +19,7 @@
 
 .home-container .movie-lists {
   width: 100%;
+  min-height: calc(80vh - (var(--header-size) + var(--footer-size)));
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -29,7 +30,14 @@
 .home-container .movie-box img {
   width: 200px;
   height: 240px;
+  border-radius: 10px;
+  transition: 0.15s ease-in-out;
 }
+
+.home-container .movie-box img:hover {
+  transform: scale(1.05);
+}
+
 @media (min-width: 1400px) {
   .home-container {
     padding: 52px 156px;

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
 import axios from "axios";
+import { useDebounce } from "../../CustomHooks/useDebounce";
 
 const API_URL =
   "https://api.themoviedb.org/3/search/movie?api_key=d3449ff6ec0c027623bf6b6f5fff78b3&language=en-US&page=1&include_adult=false";
 
 export const Home = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("movies");
   const [searchList, setSearchList] = useState([]);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   const fetchMovies = async () => {
     try {
@@ -24,21 +26,15 @@ export const Home = () => {
 
   useEffect(() => {
     // Debouncing
-    const timeOut = setTimeout(() => {
-      searchValue && fetchMovies();
-    }, 300);
-
-    return () => {
-      clearTimeout(timeOut);
-    };
-  }, [searchValue]);
+    searchValue && fetchMovies();
+  }, [debouncedValue]);
 
   const handleChange = (event) => {
     setSearchValue(event.target.value);
   };
 
   const clearSearch = () => {
-    setSearchValue("");
+    setSearchValue("movies");
     setSearchList([]);
   };
 
@@ -72,7 +68,7 @@ export const Home = () => {
                 src={
                   data.poster_path
                     ? `https://image.tmdb.org/t/p/w500/${data.poster_path}`
-                    : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyBTSDdspF-1EtDKvyQL-k8iG7qNcQsxuKZA&usqp=CAU`
+                    : `https://img.freepik.com/premium-vector/no-photo-available-vector-icon-default-image-symbol-picture-coming-soon-web-site-mobile-app_87543-10951.jpg?w=2000`
                 }
                 alt="movie poster"
               ></img>

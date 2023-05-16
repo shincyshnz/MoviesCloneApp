@@ -54,6 +54,11 @@
   padding-top: 14px;
   text-align: right;
 }
+
+.login-container .sign-up-link {
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
 @media (max-width: 450px) {
   .login-container {
     width: 350px;
@@ -65,9 +70,5 @@
   }
   .login-container button {
     width: 100%;
-  }
-  .login-container .sign-up-link {
-    margin-top: 60px;
-    margin-bottom: 30px;
   }
 }

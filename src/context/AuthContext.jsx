@@ -20,6 +20,9 @@ export const AuthProvider = ({ children }) => {
     if (username === "test" && password == "test") {
       handleSetLocalStorage("Token", authToken);
       setAuth(true);
+      return true;
+    } else {
+      return false;
     }
   };
 
