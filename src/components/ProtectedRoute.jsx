@@ -6,8 +6,10 @@ const ProtectedRoute = () => {
   const { auth } = useContext(AuthContext);
 
   if (!auth) {
-    return <Navigate to="/" />;
+    console.log(auth, "=== inside protectedRoute");
+    return <Navigate to="/" replace />;
   }
+  console.log(auth, "===outside protectedRoute");
   return <Outlet />;
 };
 

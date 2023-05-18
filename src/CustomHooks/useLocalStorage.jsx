@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from "react";
-
 export const useLocalStorage = () => {
-  const [tokenValue, setTokenValue] = useState("");
-
-  // useEffect(() => {});
-
   const handleSetLocalStorage = (key, token) => {
-    JSON.stringify(localStorage.setItem(key, token));
+    localStorage.setItem(key, JSON.stringify(token));
   };
 
   const handleGetLocalStorage = (key) => {
-    const data = localStorage.getItem(key);
-    setTokenValue(data);
+    const data = JSON.parse(localStorage.getItem(key));
     return data;
   };
 
@@ -20,7 +13,6 @@ export const useLocalStorage = () => {
   };
 
   return {
-    tokenValue,
     handleSetLocalStorage,
     handleGetLocalStorage,
     handleRemoveLocalStorage,

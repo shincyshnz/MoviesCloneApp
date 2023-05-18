@@ -1,25 +1,27 @@
-import React, { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { v4 as uuidV4 } from "uuid";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useLocalStorage } from "../CustomHooks/useLocalStorage";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const { handleSetLocalStorage, handleGetLocalStorage } = useLocalStorage();
+  const {
+    handleSetLocalStorage,
+    handleGetLocalStorage,
+    handleRemoveLocalStorage,
+  } = useLocalStorage();
 
-  const [auth, setAuth] = useState("");
-  const authToken = uuidV4();
+  const [isAuth, setIsAuth] = useState(false);
+  const Token = { key: "Token", value: "logged" };
 
   useEffect(() => {
-    const token = handleGetLocalStorage("Token");
-    token == "" && setAuth(false);
+    const token = handleGetLocalStorage(Token.value);
+    token == "" && setIsAuth(false);
   }, []);
 
   const login = (username, password) => {
     if (username === "test" && password == "test") {
-      handleSetLocalStorage("Token", authToken);
-      setAuth(true);
+      handleSetLocalStorage(Token.value, Token.value);
+      setIsAuth(true);
       return true;
     } else {
       return false;
@@ -27,13 +29,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("Token");
-    setAuth(false);
+    handleRemoveLocalStorage(Token.value);
+    setIsAuth(false);
   };
 
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
+    <AuthContext.Provider value={{ isAuth, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
+};
+
+// Custom Hook for Auth
+export const useAuth = () => {
+  return useContext(AuthContext);
 };

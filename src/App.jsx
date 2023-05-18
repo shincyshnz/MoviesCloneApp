@@ -8,6 +8,7 @@ import { AuthContext } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Login } from "./Pages/Login/Login";
 import { Home } from "./Pages/Home/Home";
+import ProtectedRouteAfterLogin from "./components/ProtectedRouteAfterLogin";
 
 function App() {
   return (
@@ -15,9 +16,13 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Login />}></Route>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/home" element={<Home />}></Route>
+        <Route element={<ProtectedRouteAfterLogin />}>
+          <Route path="home" element={<Home />}></Route>
         </Route>
+        {/* <Route element={<ProtectedRoute />}>
+          <Route path="home" element={<Home />}></Route>
+        </Route> */}
+        <Route path="*" element={<Error />}></Route>
       </Routes>
       <Footer />
     </>

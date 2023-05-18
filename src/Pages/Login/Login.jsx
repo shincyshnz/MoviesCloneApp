@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./login.css";
-import { ThemeContext } from "../../context/ThemeContext";
-import { AuthContext } from "../../context/AuthContext";
-import { useLocalStorage } from "../../CustomHooks/useLocalStorage";
+import { useTheme } from "../../context/ThemeContext";
+import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const { theme } = useContext(ThemeContext);
-  const { login } = useContext(AuthContext);
+  const { theme } = useTheme();
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 
@@ -69,7 +68,7 @@ export const Login = () => {
     }
 
     login(formFields.username.trim(), formFields.password.trim())
-      ? navigate("/home")
+      ? navigate("/home", { replace: true })
       : errorSetting("loginError", "Username and Password does not match");
   };
 

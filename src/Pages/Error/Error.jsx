@@ -1,0 +1,16 @@
+import React from "react";
+import { useTheme } from "../../context/ThemeContext";
+import { useError } from "../../context/ErrorContext";
+
+export const Error = () => {
+  const { theme } = useTheme();
+  const { errorObj, handleErrorObj } = useError();
+
+  return (
+    <>
+      <div className={`theme-${theme}`}>
+        {errorObj && <p>{errorObj}</p>}dofjgfdgkd
+      </div>
+    </>
+  );
+};

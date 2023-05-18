@@ -35,6 +35,6 @@ body {
   /* min-width: 430px; */
   width: 100%;
   background-image: url("../assets/images/films.jpeg");
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   z-index: -1;
 }

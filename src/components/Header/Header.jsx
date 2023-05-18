@@ -1,17 +1,12 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import { MdDarkMode, MdSunny, MdOutlinePersonOutline } from "react-icons/md";
-import { ThemeContext } from "../../context/ThemeContext";
-import { AuthContext } from "../../context/AuthContext";
-import { useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext";
+import { useAuth } from "../../context/AuthContext";
 
 export const Header = () => {
-  const { theme, onChangeTheme } = useContext(ThemeContext);
-  const { auth, logout } = useContext(AuthContext);
-
-  useEffect(() => {
-    document.body.className = `theme-${theme}`;
-  }, [theme]);
+  const { theme, onChangeTheme } = useTheme();
+  const { isAuth, logout } = useAuth();
 
   return (
     <header>
@@ -35,7 +30,7 @@ export const Header = () => {
             </button>
           )}
 
-          {auth && (
+          {isAuth && (
             <button onClick={logout} className="signIn-btn m-8 flex gap-2">
               Logout
               <MdOutlinePersonOutline fill="white" size={20} />
