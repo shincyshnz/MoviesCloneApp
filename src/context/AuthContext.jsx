@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = (username, password) => {
     if (username === "test" && password == "test") {
-      handleSetLocalStorage(Token.value, Token.value);
+      handleSetLocalStorage(Token.key, Token.value);
       setIsAuth(true);
       return true;
     } else {
@@ -29,8 +29,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    handleRemoveLocalStorage(Token.value);
+    handleRemoveLocalStorage(Token.key);
     setIsAuth(false);
+    return true;
   };
 
   return (

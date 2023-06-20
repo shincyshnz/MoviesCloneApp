@@ -8,9 +8,7 @@ export const Error = () => {
 
   return (
     <>
-      <div className={`theme-${theme}`}>
-        {errorObj && <p>{errorObj}</p>}dofjgfdgkd
-      </div>
+      <div className={`theme-${theme}`}>{errorObj && <p>{errorObj}</p>}</div>
     </>
   );
 };

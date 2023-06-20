@@ -3,11 +3,16 @@ import "./Header.css";
 import { MdDarkMode, MdSunny, MdOutlinePersonOutline } from "react-icons/md";
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const { theme, onChangeTheme } = useTheme();
   const { isAuth, logout } = useAuth();
+  const navigate = useNavigate();
 
+  const handleLogout = () => {
+    if (logout()) navigate("/", { replace: true });
+  };
   return (
     <header>
       <div className="header-container flex justify-between">
@@ -31,7 +36,10 @@ export const Header = () => {
           )}
 
           {isAuth && (
-            <button onClick={logout} className="signIn-btn m-8 flex gap-2">
+            <button
+              onClick={handleLogout}
+              className="signIn-btn m-8 flex gap-2"
+            >
               Logout
               <MdOutlinePersonOutline fill="white" size={20} />
             </button>
