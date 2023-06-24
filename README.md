@@ -13,7 +13,7 @@ This is a Movie Search Application using TMDB Movie API. User is authenticated u
 ## Technologies Used
 
 - React Router DOM
-- Context API
+- Context API (Authentication, Theme and Error Handling)
 - Local Storage
 - Custom Hooks(Debounce & Local Storage)
 - Protected Route using Outlet
