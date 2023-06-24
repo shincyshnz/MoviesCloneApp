@@ -1,6 +1,6 @@
 # MoviesClone App
 
-This is a Simple Movie Search Application using TMDB Movie API. User is authenticated using email and password(test for both). If user is authenticated redirected to homepage, else validation messages are displayed
+This is a Movie Search Application using TMDB Movie API. User is authenticated using email and password(test for both). If user is authenticated redirected to homepage, else validation messages are displayed
 
 ## Features
 
@@ -20,5 +20,6 @@ This is a Simple Movie Search Application using TMDB Movie API. User is authenti
 - CSS
 - Axios
 - Vite
+- React Youtube
 
 ## CodeSandBox :[https://codesandbox.io/p/github/shincyshnz/MoviesCloneApp/main?workspaceId=8aac3505-a023-4852-a9c3-c5f85005a406]

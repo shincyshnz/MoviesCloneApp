@@ -3,7 +3,7 @@ import "./home.css";
 import { useDebounce } from "../../CustomHooks/useDebounce";
 import { useMovies } from "../../CustomHooks/useMovies";
 import { TMDB_IMAGE_URL, NO_IMAGE_URL } from "../../constants/TMDB_API";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Trailer from "../Trailer/Trailer";
 
 export const Home = () => {
@@ -11,8 +11,6 @@ export const Home = () => {
   const debouncedValue = useDebounce(searchValue, 300);
   const { moviesList, filteredMovieList, getMoviesList, getFilteredMovieList } =
     useMovies();
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     // Debouncing

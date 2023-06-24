@@ -24,7 +24,7 @@ const Trailer = () => {
     const trailer = movieTrailer.data.videos.results.find(
       (movie) => movie.name === "Official Trailer"
     );
-    return <YouTube videoId={trailer.key} opts={opts} onReady={onReady} />;
+    return <YouTube videoId={trailer?.key} opts={opts} onReady={onReady} />;
   };
 
   return (

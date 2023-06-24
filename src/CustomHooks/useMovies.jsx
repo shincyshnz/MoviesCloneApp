@@ -40,7 +40,7 @@ export const useMovies = () => {
       const response = await axios(TMDB_MOVIE_LIST_API);
       setMoviesList(response.data?.results);
     } catch (error) {
-      handleErrorObj("MovieList", error);
+      handleErrorObj("MovieList", error.message);
     }
   };
 
@@ -53,7 +53,7 @@ export const useMovies = () => {
       });
       setFilteredMovieList(response.data?.results);
     } catch (error) {
-      handleErrorObj("filteredMovieList", error);
+      handleErrorObj("filteredMovieList", error.message);
     }
   };
 
