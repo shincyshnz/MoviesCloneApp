@@ -13,13 +13,19 @@ export const Header = () => {
   const handleLogout = () => {
     if (logout()) navigate("/", { replace: true });
   };
+
+  const handleLogoLink = () => {
+    if (isAuth) return navigate("/home", { replace: true });
+    handleLogout();
+  };
+
   return (
     <header>
       <div className="header-container flex justify-between">
-        <div className="logo">
+        <a className="logo" onClick={handleLogoLink}>
           <img src="../film-icon.png" alt="logo" />
           <p>MoviesClone</p>
-        </div>
+        </a>
 
         <div className="login-btn flex align-middle">
           {theme === "light" ? (

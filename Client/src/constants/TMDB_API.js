@@ -1,4 +1,4 @@
-const API_KEY = "d3449ff6ec0c027623bf6b6f5fff78b3";
+export const API_KEY = "d3449ff6ec0c027623bf6b6f5fff78b3";
 
 export const TMDB_VIDEO_API = "https://api.themoviedb.org/3/movie";
 
@@ -11,3 +11,6 @@ export const TMDB_SEARCH_API =
 
 export const NO_IMAGE_URL =
     "https://img.freepik.com/premium-vector/no-photo-available-vector-icon-default-image-symbol-picture-coming-soon-web-site-mobile-app_87543-10951.jpg?w=2000";
+
+
+//https://api.themoviedb.org/3/movie/157336?api_key=d3449ff6ec0c027623bf6b6f5fff78b3&append_to_response=videos

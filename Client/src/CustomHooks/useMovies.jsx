@@ -1,11 +1,17 @@
 import { useState } from "react";
-import { TMDB_MOVIE_LIST_API, TMDB_SEARCH_API } from "../constants/TMDB_API";
+import {
+  TMDB_MOVIE_LIST_API,
+  TMDB_SEARCH_API,
+  TMDB_VIDEO_API,
+  API_KEY,
+} from "../constants/TMDB_API";
 import { useError } from "../context/ErrorContext";
 import axios from "axios";
 
 export const useMovies = () => {
   const [moviesList, setMoviesList] = useState([]);
   const [filteredMovieList, setFilteredMovieList] = useState([]);
+  const [movieTrailer, setMovieTrailer] = useState();
   const { errorObj, handleErrorObj } = useError();
 
   // Method 1: promise
@@ -51,9 +57,23 @@ export const useMovies = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getMoviesList();
-  // }, []);
+  const getMovieTrailer = async (id) => {
+    try {
+      const data = await axios(
+        `${TMDB_VIDEO_API}/${id}?api_key=${API_KEY}&append_to_response=videos,credits`
+      );
+      setMovieTrailer(data);
+    } catch (error) {
+      handleErrorObj("movieTrailer", error);
+    }
+  };
 
-  return { moviesList, filteredMovieList, getMoviesList, getFilteredMovieList };
+  return {
+    moviesList,
+    filteredMovieList,
+    movieTrailer,
+    getMoviesList,
+    getFilteredMovieList,
+    getMovieTrailer,
+  };
 };

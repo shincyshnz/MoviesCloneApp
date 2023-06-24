@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./home.css";
 import { useDebounce } from "../../CustomHooks/useDebounce";
 import { useMovies } from "../../CustomHooks/useMovies";
 import { TMDB_IMAGE_URL, NO_IMAGE_URL } from "../../constants/TMDB_API";
+import { Link, useNavigate } from "react-router-dom";
+import Trailer from "../Trailer/Trailer";
 
 export const Home = () => {
   const [searchValue, setSearchValue] = useState("");
   const debouncedValue = useDebounce(searchValue, 300);
   const { moviesList, filteredMovieList, getMoviesList, getFilteredMovieList } =
     useMovies();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Debouncing
@@ -50,15 +54,17 @@ export const Home = () => {
           {(searchValue ? filteredMovieList : moviesList).map((data) => {
             return (
               <div className="movie-box" key={data.id}>
-                <img
-                  className="movie-image"
-                  src={
-                    data.poster_path
-                      ? `${TMDB_IMAGE_URL}${data.poster_path}`
-                      : `${NO_IMAGE_URL}`
-                  }
-                  alt="movie poster"
-                ></img>
+                <Link to={`../trailer/${data.id}`}>
+                  <img
+                    className="movie-image"
+                    src={
+                      data.poster_path
+                        ? `${TMDB_IMAGE_URL}${data.poster_path}`
+                        : `${NO_IMAGE_URL}`
+                    }
+                    alt="movie poster"
+                  ></img>
+                </Link>
               </div>
             );
           })}
