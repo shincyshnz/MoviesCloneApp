@@ -24,9 +24,10 @@ This is a Movie Search Application using TMDB Movie API. User is authenticated u
 
 ## Live Demo
 
-![Demo](https://movies-clone-app.vercel.app/)
-Username:test
+[Demo](https://movies-clone-app.vercel.app/)
+(Username:test
 Password:test
+)
 
 ## CodeSandBox :
 
