@@ -2,11 +2,6 @@
 
 This is a Movie Search Application using TMDB Movie API. User is authenticated using email and password(test for both). If user is authenticated redirected to homepage, else validation messages are displayed
 
-### Note
-
-Username:test
-Password:test
-
 ## Features
 
 - User Authentication
@@ -27,7 +22,11 @@ Password:test
 - Vite
 - React Youtube
 
-Live Demo : [https://movies-clone-app.vercel.app/]
+## Live Demo
+
+![Demo](https://movies-clone-app.vercel.app/)
+Username:test
+Password:test
 
 ## CodeSandBox :
 
@@ -44,3 +43,14 @@ Live Demo : [https://movies-clone-app.vercel.app/]
 ## Trailer
 
 ![movie-trailer](https://github.com/shincyshnz/MoviesCloneApp/assets/48871950/724693dd-03ba-4db3-8bb7-4bbb60d02249)
+
+````
+
+```
+
+```
+
+```
+
+```
+````
