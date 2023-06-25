@@ -1,6 +1,11 @@
-![movie-login](https://github.com/shincyshnz/MoviesCloneApp/assets/48871950/58697625-0cd8-4039-b01e-030f9ea0daea)# MoviesClone App
+# MoviesClone App
 
 This is a Movie Search Application using TMDB Movie API. User is authenticated using email and password(test for both). If user is authenticated redirected to homepage, else validation messages are displayed
+
+### Note
+
+Username:test
+Password:test
 
 ## Features
 
