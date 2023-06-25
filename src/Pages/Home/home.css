@@ -48,3 +48,15 @@
     gap: 60px;
   }
 }
+
+@media (min-width: 300px) and (max-width: 767px) {
+  .home-container {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 0;
+  }
+
+  .home-container .movie-lists {
+    gap: 10px;
+  }
+}

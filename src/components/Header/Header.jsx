@@ -21,7 +21,7 @@ export const Header = () => {
 
   return (
     <header>
-      <div className="header-container flex justify-between">
+      <div className="header-container flex">
         <a className="logo" onClick={handleLogoLink}>
           <img src="../film-icon.png" alt="logo" />
           <p>MoviesClone</p>
