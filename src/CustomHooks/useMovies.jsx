@@ -46,19 +46,12 @@ export const useMovies = () => {
 
   const getFilteredMovieList = async (searchValue) => {
     try {
-      // const response = await axios(TMDB_SEARCH_API, {
-      //   params: {
-      //     query: searchValue,
-      //   },
-      // });
-      const response = await axios(
-        `https://api.themoviedb.org/3/search/movi?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`,
-        {
-          params: {
-            query: searchValue,
-          },
-        }
-      );
+      const response = await axios(TMDB_SEARCH_API, {
+        params: {
+          query: searchValue,
+        },
+      });
+      
       setFilteredMovieList(response.data?.results);
     } catch (error) {
       handleErrorObj("filteredMovieList", `${error.message}(${error.code})`);
