@@ -5,6 +5,11 @@ export const useLocalStorage = () => {
 
   const handleGetLocalStorage = (key) => {
     const data = JSON.parse(localStorage.getItem(key));
+<<<<<<< HEAD
+=======
+
+    // setTokenValue(data);
+>>>>>>> a9a40e8 (bug fix : Logout)
     return data;
   };
 
@@ -13,6 +18,10 @@ export const useLocalStorage = () => {
   };
 
   return {
+<<<<<<< HEAD
+=======
+    // tokenValue,
+>>>>>>> a9a40e8 (bug fix : Logout)
     handleSetLocalStorage,
     handleGetLocalStorage,
     handleRemoveLocalStorage,

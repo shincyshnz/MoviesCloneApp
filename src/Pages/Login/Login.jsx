@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./login.css";
+<<<<<<< HEAD
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
+=======
+import { ThemeContext } from "../../context/ThemeContext";
+import { AuthContext } from "../../context/AuthContext";
+>>>>>>> a9a40e8 (bug fix : Logout)
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
