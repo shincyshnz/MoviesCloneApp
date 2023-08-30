@@ -1,32 +1,25 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import { MdDarkMode, MdSunny, MdOutlinePersonOutline } from "react-icons/md";
-<<<<<<< HEAD
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+// export const Header = () => {
+//   const { theme, onChangeTheme } = useTheme();
+//   const { isAuth, logout } = useAuth();
+// import { ThemeContext } from "../../context/ThemeContext";
+// import { AuthContext } from "../../context/AuthContext";
+// import { useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+
 export const Header = () => {
   const { theme, onChangeTheme } = useTheme();
-  const { isAuth, logout } = useAuth();
-=======
-import { ThemeContext } from "../../context/ThemeContext";
-import { AuthContext } from "../../context/AuthContext";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-export const Header = () => {
-  const { theme, onChangeTheme } = useContext(ThemeContext);
-  const { auth, logout } = useContext(AuthContext);
->>>>>>> a9a40e8 (bug fix : Logout)
+  const { auth, logout } = useAuth();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    if (logout()) navigate("/", { replace: true });
-  };
-
   const handleLogoLink = () => {
-    if (isAuth) return navigate("/home", { replace: true });
+    if (auth) return navigate("/home", { replace: true });
     handleLogout();
   };
 
@@ -56,11 +49,7 @@ export const Header = () => {
             </button>
           )}
 
-<<<<<<< HEAD
-          {isAuth && (
-=======
           {auth && (
->>>>>>> a9a40e8 (bug fix : Logout)
             <button
               onClick={handleLogout}
               className="signIn-btn m-8 flex gap-2"
