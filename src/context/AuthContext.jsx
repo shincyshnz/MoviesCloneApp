@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { createContext, useContext, useEffect, useState } from "react";
-=======
-import React, { createContext, useEffect, useState } from "react";
->>>>>>> a9a40e8 (bug fix : Logout)
 import { useLocalStorage } from "../CustomHooks/useLocalStorage";
 
 export const AuthContext = createContext();
@@ -14,13 +10,8 @@ export const AuthProvider = ({ children }) => {
     handleRemoveLocalStorage,
   } = useLocalStorage();
 
-<<<<<<< HEAD
   const [isAuth, setIsAuth] = useState(false);
   const Token = { key: "Token", value: "logged" };
-=======
-  const [auth, setAuth] = useState("");
-  const authToken = "logged";
->>>>>>> a9a40e8 (bug fix : Logout)
 
   useEffect(() => {
     const token = handleGetLocalStorage(Token.value);
